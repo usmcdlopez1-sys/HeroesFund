@@ -1,1102 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Heroes Support Fund - Supporting US Military Personnel</title>
-    <link href="./src/output.css" rel="stylesheet">
-    <style>
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=600&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-        .testimonial-img {
-            background-image: url('https://images.unsplash.com/photo-1560525821-b5850b4b7f4c?w=400&h=300&fit=crop&face');
-            background-size: cover;
-            background-position: center;
-        }
-        .impact-img-1 {
-            background-image: url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=300&h=200&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-        .impact-img-2 {
-            background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=300&h=200&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-        .impact-img-3 {
-            background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&h=200&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-        .page-content { display: none; }
-        .page-content.active { display: block; }
-        .progress-bar { background: linear-gradient(90deg, #10b981 65%, #e5e7eb 65%); }
-        .nav-mobile { display: none; }
-        @media (max-width: 768px) {
-            .nav-desktop { display: none; }
-            .nav-mobile { display: block; }
-        }
-    </style>
-</head>
-<body class="bg-gray-50">
+    <link href="./src/output.css" rel="stylesheet" />
+    <link href="./src/style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <i class="fas fa-flag-usa text-blue-600 text-2xl mr-3"></i>
-                    <span class="font-bold text-xl text-gray-800">Heroes Support Fund</span>
-                </div>
-                
-                <!-- Desktop Navigation -->
-                <div class="nav-desktop flex items-center space-x-8">
-                    <a href="#" onclick="showPage('home')" class="text-gray-700 hover:text-blue-600 transition">Home</a>
-                    <a href="#" onclick="showPage('about')" class="text-gray-700 hover:text-blue-600 transition">About</a>
-                    <a href="#" onclick="showPage('impact')" class="text-gray-700 hover:text-blue-600 transition">Our Impact</a>
-                    <a href="#" onclick="showPage('stories')" class="text-gray-700 hover:text-blue-600 transition">Stories</a>
-                    <a href="#" onclick="showPage('transparency')" class="text-gray-700 hover:text-blue-600 transition">Transparency</a>
-                    <button onclick="showPage('donate')" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">Donate Now</button>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <div class="nav-mobile">
-                    <button onclick="toggleMobileMenu()" class="text-gray-700">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+     <header id="header"></header>
+
+    <!--Main  -->
+    <div class="page-content active">
+      <!-- Hero Section -->
+      <section
+        class="hero-bg min-h-screen flex items-center justify-center text-white"
+      >
+        <div class="max-w-4xl mx-auto text-center px-4">
+          <h1 class="text-5xl md:text-7xl font-bold mb-6">
+            Supporting Our Heroes
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 opacity-90">
+            Standing with US Military Personnel serving at home and abroad
+          </p>
+          <div class="space-x-4">
+            <button
+              onclick="showPage('donate')"
+              class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition transform hover:scale-105"
+            >
+              Donate Now
+            </button>
+            <button
+              onclick="showPage('about')"
+              class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-800 transition"
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Impact Stats -->
+      <section class="bg-blue-600 text-white py-16">
+        <div class="max-w-6xl mx-auto px-4">
+          <div class="grid md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div class="text-4xl font-bold mb-2">10,000+</div>
+              <div class="text-blue-100">Military Families Helped</div>
             </div>
-            
-            <!-- Mobile Navigation -->
-            <div id="mobile-menu" class="nav-mobile hidden pb-4">
-                <a href="#" onclick="showPage('home')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</a>
-                <a href="#" onclick="showPage('about')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">About</a>
-                <a href="#" onclick="showPage('impact')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Our Impact</a>
-                <a href="#" onclick="showPage('stories')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Stories</a>
-                <a href="#" onclick="showPage('transparency')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Transparency</a>
-                <button onclick="showPage('donate')" class="w-full text-left px-4 py-2 bg-blue-600 text-white hover:bg-blue-700">Donate Now</button>
+            <div>
+              <div class="text-4xl font-bold mb-2">$2.5M</div>
+              <div class="text-blue-100">Total Aid Distributed</div>
             </div>
+            <div>
+              <div class="text-4xl font-bold mb-2">95%</div>
+              <div class="text-blue-100">Goes Directly to Aid</div>
+            </div>
+            <div>
+              <div class="text-4xl font-bold mb-2">24/7</div>
+              <div class="text-blue-100">Emergency Support</div>
+            </div>
+          </div>
         </div>
-    </nav>
+      </section>
 
-    <!-- Main Content -->
-    <div class="pt-16">
-        <!-- Home Page -->
-        <div id="home-page" class="page-content active">
-            <!-- Hero Section -->
-            <section class="hero-bg min-h-screen flex items-center justify-center text-white">
-                <div class="max-w-4xl mx-auto text-center px-4">
-                    <h1 class="text-5xl md:text-7xl font-bold mb-6">Supporting Our Heroes</h1>
-                    <p class="text-xl md:text-2xl mb-8 opacity-90">Standing with US Military Personnel serving at home and abroad</p>
-                    <div class="space-x-4">
-                        <button onclick="showPage('donate')" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition transform hover:scale-105">Donate Now</button>
-                        <button onclick="showPage('about')" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-800 transition">Learn More</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Quick Impact Stats -->
-            <section class="bg-blue-600 text-white py-16">
-                <div class="max-w-6xl mx-auto px-4">
-                    <div class="grid md:grid-cols-4 gap-8 text-center">
-                        <div>
-                            <div class="text-4xl font-bold mb-2">10,000+</div>
-                            <div class="text-blue-100">Military Families Helped</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold mb-2">$2.5M</div>
-                            <div class="text-blue-100">Total Aid Distributed</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold mb-2">95%</div>
-                            <div class="text-blue-100">Goes Directly to Aid</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold mb-2">24/7</div>
-                            <div class="text-blue-100">Emergency Support</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Featured Impact -->
-            <section class="py-20 bg-white">
-                <div class="max-w-6xl mx-auto px-4">
-                    <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">How Your Donation Makes a Difference</h2>
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <div class="text-center group">
-                            <div class="impact-img-1 w-full h-48 rounded-lg mb-6 transform group-hover:scale-105 transition"></div>
-                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Emergency Aid</h3>
-                            <p class="text-gray-600 mb-4">Immediate financial assistance for military families facing unexpected hardships.</p>
-                            <div class="text-blue-600 font-semibold">$50 provides emergency groceries</div>
-                        </div>
-                        <div class="text-center group">
-                            <div class="impact-img-2 w-full h-48 rounded-lg mb-6 transform group-hover:scale-105 transition"></div>
-                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Medical Support</h3>
-                            <p class="text-gray-600 mb-4">Healthcare assistance for wounded veterans and their families.</p>
-                            <div class="text-blue-600 font-semibold">$200 covers medical equipment</div>
-                        </div>
-                        <div class="text-center group">
-                            <div class="impact-img-3 w-full h-48 rounded-lg mb-6 transform group-hover:scale-105 transition"></div>
-                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Mental Health</h3>
-                            <p class="text-gray-600 mb-4">Counseling and therapy services for PTSD and trauma recovery.</p>
-                            <div class="text-blue-600 font-semibold">$500 funds therapy sessions</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CTA Section -->
-            <section class="bg-gray-800 text-white py-20">
-                <div class="max-w-4xl mx-auto text-center px-4">
-                    <h2 class="text-4xl font-bold mb-6">Every Dollar Counts</h2>
-                    <p class="text-xl mb-8 opacity-90">Join thousands of Americans supporting our military heroes and their families.</p>
-                    <button onclick="showPage('donate')" class="bg-red-600 hover:bg-red-700 text-white px-12 py-4 rounded-lg text-xl font-semibold transition transform hover:scale-105">Start Supporting Today</button>
-                </div>
-            </section>
+      <!-- Featured Impact -->
+      <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+          <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">
+            How Your Donation Makes a Difference
+          </h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center group">
+              <div
+                class="impact-img-1 w-full h-48 rounded-lg mb-6 transform group-hover:scale-105 transition"
+              ></div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                Emergency Aid
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Immediate financial assistance for military families facing
+                unexpected hardships.
+              </p>
+              <div class="text-blue-600 font-semibold">
+                $50 provides emergency groceries
+              </div>
+            </div>
+            <div class="text-center group">
+              <div
+                class="impact-img-2 w-full h-48 rounded-lg mb-6 transform group-hover:scale-105 transition"
+              ></div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                Medical Support
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Healthcare assistance for wounded veterans and their families.
+              </p>
+              <div class="text-blue-600 font-semibold">
+                $200 covers medical equipment
+              </div>
+            </div>
+            <div class="text-center group">
+              <div
+                class="impact-img-3 w-full h-48 rounded-lg mb-6 transform group-hover:scale-105 transition"
+              ></div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                Mental Health
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Counseling and therapy services for PTSD and trauma recovery.
+              </p>
+              <div class="text-blue-600 font-semibold">
+                $500 funds therapy sessions
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <!-- About Page -->
-        <div id="about-page" class="page-content">
-            <section class="py-20 bg-white">
-                <div class="max-w-4xl mx-auto px-4">
-                    <h1 class="text-5xl font-bold text-center mb-12 text-gray-800">About Heroes Support Fund</h1>
-                    
-                    <div class="prose max-w-none text-lg text-gray-700 space-y-6">
-                        <p>Heroes Support Fund is a dedicated nonprofit organization committed to supporting United States military personnel and their families, both those serving overseas in conflict zones and those stationed domestically.</p>
-                        
-                        <p>Founded in 2020, we recognized the critical need for immediate, direct assistance to military families facing financial hardships, medical challenges, and emotional struggles that come with military service.</p>
-                        
-                        <h2 class="text-3xl font-bold text-gray-800 mt-12 mb-6">Our Mission</h2>
-                        <p>To provide immediate financial assistance, medical support, and mental health resources to US military personnel and their families, ensuring no hero faces their challenges alone.</p>
-                        
-                        <h2 class="text-3xl font-bold text-gray-800 mt-12 mb-6">What We Do</h2>
-                        <ul class="list-disc list-inside space-y-3">
-                            <li>Emergency financial assistance for military families in crisis</li>
-                            <li>Medical support for wounded warriors and their families</li>
-                            <li>Mental health counseling and PTSD support services</li>
-                            <li>Educational scholarships for military children</li>
-                            <li>Housing assistance for transitioning veterans</li>
-                            <li>24/7 crisis support hotline</li>
-                        </ul>
-                        
-                        <h2 class="text-3xl font-bold text-gray-800 mt-12 mb-6">Our Partnerships</h2>
-                        <p>We work closely with established military support organizations including Army Emergency Relief, Navy-Marine Corps Relief Society, and local veteran service organizations to maximize our impact and avoid duplication of services.</p>
-                        
-                        <div class="bg-blue-50 p-8 rounded-lg mt-12">
-                            <p class="text-sm italic text-gray-600">
-                                <strong>Important Note:</strong> Heroes Support Fund is a private nonprofit organization. It is not a part of the Department of Defense or any of its components and has no governmental status. We are an independent 501(c)(3) charitable organization dedicated to supporting military families.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+      <!-- CTA Section -->
+      <section class="bg-gray-800 text-white py-20">
+        <div class="max-w-4xl mx-auto text-center px-4">
+          <h2 class="text-4xl font-bold mb-6">Every Dollar Counts</h2>
+          <p class="text-xl mb-8 opacity-90">
+            Join thousands of Americans supporting our military heroes and their
+            families.
+          </p>
+          <button
+            onclick="showPage('donate')"
+            class="bg-red-600 hover:bg-red-700 text-white px-12 py-4 rounded-lg text-xl font-semibold transition transform hover:scale-105"
+          >
+            Start Supporting Today
+          </button>
         </div>
-
-        <!-- Impact Page -->
-        <div id="impact-page" class="page-content">
-            <section class="py-20 bg-white">
-                <div class="max-w-6xl mx-auto px-4">
-                    <h1 class="text-5xl font-bold text-center mb-16 text-gray-800">Our Impact</h1>
-                    
-                    <!-- Impact Statistics -->
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                        <div class="text-center bg-blue-50 p-8 rounded-lg">
-                            <div class="text-4xl font-bold text-blue-600 mb-2">10,247</div>
-                            <div class="text-gray-700">Families Helped</div>
-                        </div>
-                        <div class="text-center bg-green-50 p-8 rounded-lg">
-                            <div class="text-4xl font-bold text-green-600 mb-2">$2.8M</div>
-                            <div class="text-gray-700">Total Aid Distributed</div>
-                        </div>
-                        <div class="text-center bg-red-50 p-8 rounded-lg">
-                            <div class="text-4xl font-bold text-red-600 mb-2">1,500</div>
-                            <div class="text-gray-700">Emergency Interventions</div>
-                        </div>
-                        <div class="text-center bg-purple-50 p-8 rounded-lg">
-                            <div class="text-4xl font-bold text-purple-600 mb-2">95%</div>
-                            <div class="text-gray-700">Direct Program Funding</div>
-                        </div>
-                    </div>
-
-                    <!-- Program Breakdown -->
-                    <div class="grid md:grid-cols-2 gap-12 mb-16">
-                        <div>
-                            <h2 class="text-3xl font-bold mb-8 text-gray-800">Where Your Money Goes</h2>
-                            <div class="space-y-6">
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg">Emergency Financial Aid</span>
-                                    <span class="font-semibold">40%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-3">
-                                    <div class="bg-blue-600 h-3 rounded-full" style="width: 40%"></div>
-                                </div>
-
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg">Medical Support</span>
-                                    <span class="font-semibold">25%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-3">
-                                    <div class="bg-green-600 h-3 rounded-full" style="width: 25%"></div>
-                                </div>
-
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg">Mental Health Services</span>
-                                    <span class="font-semibold">20%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-3">
-                                    <div class="bg-purple-600 h-3 rounded-full" style="width: 20%"></div>
-                                </div>
-
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg">Educational Support</span>
-                                    <span class="font-semibold">10%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-3">
-                                    <div class="bg-red-600 h-3 rounded-full" style="width: 10%"></div>
-                                </div>
-
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg">Administrative Costs</span>
-                                    <span class="font-semibold">5%</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-3">
-                                    <div class="bg-gray-600 h-3 rounded-full" style="width: 5%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h2 class="text-3xl font-bold mb-8 text-gray-800">2024 Achievements</h2>
-                            <div class="space-y-6">
-                                <div class="bg-gray-50 p-6 rounded-lg">
-                                    <h3 class="font-bold text-xl mb-2">Emergency Response Program</h3>
-                                    <p class="text-gray-700">Provided immediate financial assistance to 2,500 military families facing unexpected crises, with an average response time of 24 hours.</p>
-                                </div>
-                                <div class="bg-gray-50 p-6 rounded-lg">
-                                    <h3 class="font-bold text-xl mb-2">Wounded Warrior Support</h3>
-                                    <p class="text-gray-700">Supported 800 wounded veterans with medical equipment, home modifications, and rehabilitation services.</p>
-                                </div>
-                                <div class="bg-gray-50 p-6 rounded-lg">
-                                    <h3 class="font-bold text-xl mb-2">Mental Health Initiative</h3>
-                                    <p class="text-gray-700">Funded over 5,000 therapy sessions for military personnel and veterans struggling with PTSD and deployment-related stress.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Stories Page -->
-        <div id="stories-page" class="page-content">
-            <section class="py-20 bg-white">
-                <div class="max-w-6xl mx-auto px-4">
-                    <h1 class="text-5xl font-bold text-center mb-16 text-gray-800">Stories of Impact</h1>
-                    
-                    <div class="grid lg:grid-cols-2 gap-12 mb-16">
-                        <!-- Story 1 -->
-                        <div class="bg-gray-50 p-8 rounded-lg">
-                            <div class="testimonial-img w-20 h-20 rounded-full mb-6"></div>
-                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Sarah's Story</h3>
-                            <p class="text-gray-700 mb-4">"When my husband was deployed to Iraq, I was struggling to keep up with our mortgage payments while caring for our two young children. Heroes Support Fund stepped in with emergency financial assistance that kept us from losing our home."</p>
-                            <p class="text-gray-700 mb-4">"The support didn't just help financially – it gave me hope during the darkest time of my life. Knowing that people cared about military families like mine made all the difference."</p>
-                            <div class="text-blue-600 font-semibold">– Sarah M., Military Spouse</div>
-                        </div>
-
-                        <!-- Story 2 -->
-                        <div class="bg-gray-50 p-8 rounded-lg">
-                            <div class="testimonial-img w-20 h-20 rounded-full mb-6"></div>
-                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Michael's Journey</h3>
-                            <p class="text-gray-700 mb-4">"After losing my leg in Afghanistan, I felt lost and angry. The physical wounds healed, but the emotional scars seemed permanent. Heroes Support Fund connected me with a therapist who specialized in helping veterans."</p>
-                            <p class="text-gray-700 mb-4">"Three years later, I'm married, have a beautiful daughter, and I'm studying to become a counselor myself. This organization literally saved my life."</p>
-                            <div class="text-blue-600 font-semibold">– Michael T., Marine Veteran</div>
-                        </div>
-
-                        <!-- Story 3 -->
-                        <div class="bg-gray-50 p-8 rounded-lg">
-                            <div class="testimonial-img w-20 h-20 rounded-full mb-6"></div>
-                            <h3 class="text-2xl font-bold mb-4 text-gray-800">The Johnson Family</h3>
-                            <p class="text-gray-700 mb-4">"When our son was diagnosed with autism, we needed specialized equipment and therapy that our insurance wouldn't cover. As a military family on a tight budget, we didn't know where to turn."</p>
-                            <p class="text-gray-700 mb-4">"Heroes Support Fund not only provided the financial assistance we needed but connected us with resources and other military families facing similar challenges. Our son is thriving now."</p>
-                            <div class="text-blue-600 font-semibold">– The Johnson Family, Army</div>
-                        </div>
-
-                        <!-- Story 4 -->
-                        <div class="bg-gray-50 p-8 rounded-lg">
-                            <div class="testimonial-img w-20 h-20 rounded-full mb-6"></div>
-                            <h3 class="text-2xl font-bold mb-4 text-gray-800">David's Recovery</h3>
-                            <p class="text-gray-700 mb-4">"Coming back from multiple deployments, I was struggling with nightmares and couldn't hold down a job. My marriage was falling apart, and I was drinking too much. I felt like a failure."</p>
-                            <p class="text-gray-700 mb-4">"Heroes Support Fund helped me get into a treatment program and provided financial support while I got back on my feet. Today, I'm 2 years sober and working as a peer counselor helping other veterans."</p>
-                            <div class="text-blue-600 font-semibold">– David R., Army Veteran</div>
-                        </div>
-                    </div>
-
-                    <!-- Call to Action -->
-                    <div class="text-center bg-blue-600 text-white p-12 rounded-lg">
-                        <h2 class="text-3xl font-bold mb-4">Help Us Write More Success Stories</h2>
-                        <p class="text-xl mb-8">Your donation can be the difference between despair and hope for a military family in need.</p>
-                        <button onclick="showPage('donate')" class="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition">Donate Now</button>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Transparency Page -->
-        <div id="transparency-page" class="page-content">
-            <section class="py-20 bg-white">
-                <div class="max-w-6xl mx-auto px-4">
-                    <h1 class="text-5xl font-bold text-center mb-16 text-gray-800">Financial Transparency</h1>
-                    
-                    <div class="grid lg:grid-cols-2 gap-12 mb-16">
-                        <div>
-                            <h2 class="text-3xl font-bold mb-8 text-gray-800">Our Commitment</h2>
-                            <p class="text-lg text-gray-700 mb-6">We believe in complete transparency about how your donations are used. Every dollar donated goes directly to supporting military families, with minimal administrative costs.</p>
-                            
-                            <div class="bg-green-50 p-6 rounded-lg mb-8">
-                                <h3 class="text-xl font-bold text-green-800 mb-2">95% Direct Program Funding</h3>
-                                <p class="text-green-700">95 cents of every dollar donated goes directly to programs supporting military families. Only 5% goes to administrative costs, which is well below the industry standard of 15-25%.</p>
-                            </div>
-
-                            <h3 class="text-2xl font-bold mb-4 text-gray-800">Third-Party Ratings</h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li><strong>Charity Navigator:</strong> 4/4 Stars</li>
-                                <li><strong>GuideStar:</strong> Platinum Seal of Transparency</li>
-                                <li><strong>Better Business Bureau:</strong> A+ Rating</li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h2 class="text-3xl font-bold mb-8 text-gray-800">2024 Financial Summary</h2>
-                            
-                            <div class="space-y-6">
-                                <div>
-                                    <h4 class="font-semibold text-lg mb-2">Total Revenue: $3,200,000</h4>
-                                    <div class="space-y-2">
-                                        <div class="flex justify-between">
-                                            <span>Individual Donations</span>
-                                            <span>$2,400,000 (75%)</span>
-                                        </div>
-                                        <div class="flex justify-between">
-                                            <span>Corporate Grants</span>
-                                            <span>$600,000 (19%)</span>
-                                        </div>
-                                        <div class="flex justify-between">
-                                            <span>Foundation Grants</span>
-                                            <span>$200,000 (6%)</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <h4 class="font-semibold text-lg mb-2">Program Expenses: $3,040,000</h4>
-                                    <div class="space-y-2">
-                                        <div class="flex justify-between">
-                                            <span>Emergency Financial Aid</span>
-                                            <span>$1,216,000 (40%)</span>
-                                        </div>
-                                        <div class="flex justify-between">
-                                            <span>Medical Support</span>
-                                            <span>$760,000 (25%)</span>
-                                        </div>
-                                        <div class="flex justify-between">
-                                            <span>Mental Health Services</span>
-                                            <span>$608,000 (20%)</span>
-                                        </div>
-                                        <div class="flex justify-between">
-                                            <span>Educational Support</span>
-                                            <span>$304,000 (10%)</span>
-                                        </div>
-                                        <div class="flex justify-between">
-                                            <span>Crisis Support</span>
-                                            <span>$152,000 (5%)</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <h4 class="font-semibold text-lg mb-2">Administrative Expenses: $160,000 (5%)</h4>
-                                    <p class="text-gray-600 text-sm">Includes staff salaries, office rent, technology, and other operational costs necessary to run the organization effectively.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Documents -->
-                    <div class="bg-gray-50 p-8 rounded-lg">
-                        <h2 class="text-2xl font-bold mb-6 text-gray-800">Financial Documents</h2>
-                        <p class="text-gray-700 mb-6">All of our financial documents are available for public review. We believe in complete transparency and accountability.</p>
-                        
-                        <div class="grid md:grid-cols-3 gap-4">
-                            <a href="#" class="block bg-white p-4 rounded border hover:shadow-md transition">
-                                <i class="fas fa-file-pdf text-red-500 text-2xl mb-2"></i>
-                                <div class="font-semibold">2024 Annual Report</div>
-                                <div class="text-sm text-gray-600">PDF Download</div>
-                            </a>
-                            <a href="#" class="block bg-white p-4 rounded border hover:shadow-md transition">
-                                <i class="fas fa-file-pdf text-red-500 text-2xl mb-2"></i>
-                                <div class="font-semibold">IRS Form 990</div>
-                                <div class="text-sm text-gray-600">Tax Filing</div>
-                            </a>
-                            <a href="#" class="block bg-white p-4 rounded border hover:shadow-md transition">
-                                <i class="fas fa-file-pdf text-red-500 text-2xl mb-2"></i>
-                                <div class="font-semibold">Audited Financials</div>
-                                <div class="text-sm text-gray-600">CPA Review</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Donate Page -->
-        <div id="donate-page" class="page-content">
-            <section class="py-20 bg-white">
-                <div class="max-w-4xl mx-auto px-4">
-                    <h1 class="text-5xl font-bold text-center mb-12 text-gray-800">Support Our Heroes</h1>
-                    
-                    <!-- Current Campaign -->
-                    <div class="bg-blue-50 p-8 rounded-lg mb-12">
-                        <h2 class="text-2xl font-bold mb-4 text-blue-800">Holiday Emergency Fund</h2>
-                        <div class="mb-6">
-                            <div class="flex justify-between mb-2">
-                                <span class="font-semibold">$75,000 raised</span>
-                                <span class="text-gray-600">Goal: $100,000</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-4">
-                                <div class="progress-bar h-4 rounded-full"></div>
-                            </div>
-                        </div>
-                        <p class="text-gray-700">Help us ensure no military family goes without during the holiday season. Your donation provides emergency assistance for food, utilities, and gifts for children.</p>
-                    </div>
-
-                    <!-- Donation Amounts -->
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl font-bold mb-8 text-gray-800">Choose Your Impact</h2>
-                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                            <div class="donation-option bg-white border-2 border-gray-200 p-6 rounded-lg hover:border-blue-500 cursor-pointer transition" onclick="selectAmount(25)">
-                                <div class="text-2xl font-bold text-blue-600 mb-2">$25</div>
-                                <div class="text-sm text-gray-600">Emergency groceries for a family</div>
-                            </div>
-                            <div class="donation-option bg-white border-2 border-gray-200 p-6 rounded-lg hover:border-blue-500 cursor-pointer transition" onclick="selectAmount(50)">
-                                <div class="text-2xl font-bold text-blue-600 mb-2">$50</div>
-                                <div class="text-sm text-gray-600">Utility bill assistance</div>
-                            </div>
-                            <div class="donation-option bg-white border-2 border-blue-500 p-6 rounded-lg cursor-pointer transition active" onclick="selectAmount(100)">
-                                <div class="text-2xl font-bold text-blue-600 mb-2">$100</div>
-                                <div class="text-sm text-gray-600">Week of family meals</div>
-                            </div>
-                            <div class="donation-option bg-white border-2 border-gray-200 p-6 rounded-lg hover:border-blue-500 cursor-pointer transition" onclick="selectAmount(250)">
-                                <div class="text-2xl font-bold text-blue-600 mb-2">$250</div>
-                                <div class="text-sm text-gray-600">Medical equipment support</div>
-                            </div>
-                        </div>
-
-                        <!-- Custom Amount -->
-                        <div class="mb-8">
-                            <input type="number" id="customAmount" placeholder="Enter custom amount" class="border-2 border-gray-300 px-4 py-3 rounded-lg text-center text-xl w-64 mr-4">
-                            <button onclick="selectCustomAmount()" class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition">Set Amount</button>
-                        </div>
-
-                        <!-- Donation Button -->
-                        <div class="mb-8">
-                            <button id="donateBtn" onclick="processDonation()" class="bg-red-600 hover:bg-red-700 text-white px-12 py-4 rounded-lg text-xl font-semibold transition transform hover:scale-105">Donate $100 Now</button>
-                        </div>
-
-                        <!-- Payment Options -->
-                        <div class="text-center text-gray-600">
-                            <p class="mb-4">Secure payment powered by Stripe</p>
-                            <div class="flex justify-center space-x-4">
-                                <i class="fab fa-cc-visa text-2xl"></i>
-                                <i class="fab fa-cc-mastercard text-2xl"></i>
-                                <i class="fab fa-cc-amex text-2xl"></i>
-                                <i class="fab fa-cc-discover text-2xl"></i>
-                                <i class="fab fa-paypal text-2xl"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Recurring Donation -->
-                    <div class="bg-gray-50 p-8 rounded-lg mb-12">
-                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Make it Monthly</h3>
-                        <p class="text-gray-700 mb-6">Join our Heroes Circle with a monthly donation and provide sustained support to military families year-round.</p>
-                        <div class="flex items-center space-x-4">
-                            <input type="checkbox" id="monthly" class="w-5 h-5">
-                            <label for="monthly" class="text-lg">Make this a monthly donation</label>
-                        </div>
-                    </div>
-
-                    <!-- Other Ways to Give -->
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="bg-white p-6 rounded-lg border">
-                            <h3 class="text-xl font-bold mb-4 text-gray-800">Corporate Sponsorship</h3>
-                            <p class="text-gray-700 mb-4">Partner with us to support military families while gaining positive brand recognition.</p>
-                            <button onclick="showPage('contact')" class="text-blue-600 hover:text-blue-700 font-semibold">Learn More →</button>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg border">
-                            <h3 class="text-xl font-bold mb-4 text-gray-800">Legacy Giving</h3>
-                            <p class="text-gray-700 mb-4">Include Heroes Support Fund in your will or estate planning to create lasting impact.</p>
-                            <button onclick="showPage('contact')" class="text-blue-600 hover:text-blue-700 font-semibold">Get Info →</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Contact Page -->
-        <div id="contact-page" class="page-content">
-            <section class="py-20 bg-white">
-                <div class="max-w-6xl mx-auto px-4">
-                    <h1 class="text-5xl font-bold text-center mb-16 text-gray-800">Contact Us</h1>
-                    
-                    <div class="grid lg:grid-cols-2 gap-12">
-                        <!-- Contact Information -->
-                        <div>
-                            <h2 class="text-3xl font-bold mb-8 text-gray-800">Get in Touch</h2>
-                            
-                            <div class="space-y-6 mb-12">
-                                <div class="flex items-center">
-                                    <i class="fas fa-envelope text-blue-600 text-xl w-8"></i>
-                                    <div>
-                                        <div class="font-semibold">Email</div>
-                                        <div class="text-gray-600">support@heroessupportfund.org</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-phone text-blue-600 text-xl w-8"></i>
-                                    <div>
-                                        <div class="font-semibold">24/7 Crisis Hotline</div>
-                                        <div class="text-gray-600">1-800-555-HERO (4376)</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-map-marker-alt text-blue-600 text-xl w-8"></i>
-                                    <div>
-                                        <div class="font-semibold">Mailing Address</div>
-                                        <div class="text-gray-600">123 Veterans Way<br>Washington, DC 20001</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Emergency Contact -->
-                            <div class="bg-red-50 p-6 rounded-lg mb-8">
-                                <h3 class="text-xl font-bold text-red-800 mb-2">Need Immediate Help?</h3>
-                                <p class="text-red-700 mb-4">If you're a military family in crisis, don't wait. Call our 24/7 emergency hotline.</p>
-                                <a href="tel:1-800-555-4376" class="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition">Call Now: 1-800-555-HERO</a>
-                            </div>
-
-                            <!-- Social Media -->
-                            <div>
-                                <h3 class="text-xl font-bold mb-4 text-gray-800">Follow Us</h3>
-                                <div class="flex space-x-4">
-                                    <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                    <a href="#" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                    <a href="#" class="bg-blue-800 text-white p-3 rounded-full hover:bg-blue-900 transition">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contact Form -->
-                        <div>
-                            <h2 class="text-3xl font-bold mb-8 text-gray-800">Send us a Message</h2>
-                            
-                            <form id="contactForm" class="space-y-6">
-                                <div class="grid md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-                                        <input type="text" id="firstName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    </div>
-                                    <div>
-                                        <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-                                        <input type="text" id="lastName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                                    <input type="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-
-                                <div>
-                                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                                    <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                </div>
-
-                                <div>
-                                    <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
-                                    <select id="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                        <option value="">Select a subject...</option>
-                                        <option value="emergency">Emergency Assistance Request</option>
-                                        <option value="donation">Donation Question</option>
-                                        <option value="volunteer">Volunteer Opportunities</option>
-                                        <option value="corporate">Corporate Partnership</option>
-                                        <option value="media">Media Inquiry</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-                                    <textarea id="message" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Tell us how we can help..."></textarea>
-                                </div>
-
-                                <div class="flex items-center">
-                                    <input type="checkbox" id="newsletter" class="w-4 h-4 mr-2">
-                                    <label for="newsletter" class="text-sm text-gray-700">I'd like to receive updates about Heroes Support Fund</label>
-                                </div>
-
-                                <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition">Send Message</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Privacy Policy Page -->
-        <div id="privacy-page" class="page-content">
-            <section class="py-20 bg-white">
-                <div class="max-w-4xl mx-auto px-4">
-                    <h1 class="text-5xl font-bold mb-12 text-gray-800">Privacy Policy</h1>
-                    
-                    <div class="prose max-w-none text-gray-700 space-y-6">
-                        <p><em>Last updated: January 1, 2024</em></p>
-                        
-                        <h2 class="text-3xl font-bold text-gray-800">Introduction</h2>
-                        <p>Heroes Support Fund ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or make a donation.</p>
-                        
-                        <h2 class="text-3xl font-bold text-gray-800">Information We Collect</h2>
-                        <h3 class="text-xl font-semibold">Personal Information</h3>
-                        <p>We may collect personal information that you voluntarily provide to us when you:</p>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Make a donation</li>
-                            <li>Subscribe to our newsletter</li>
-                            <li>Contact us through our website</li>
-                            <li>Apply for assistance</li>
-                            <li>Volunteer with our organization</li>
-                        </ul>
-                        
-                        <p>This information may include:</p>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Name and contact information</li>
-                            <li>Payment information (processed securely through third-party providers)</li>
-                            <li>Demographic information</li>
-                            <li>Military service information (when applying for assistance)</li>
-                        </ul>
-
-                        <h3 class="text-xl font-semibold">Automatic Information</h3>
-                        <p>We may automatically collect certain information about your device and usage patterns, including:</p>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>IP address and location data</li>
-                            <li>Browser type and version</li>
-                            <li>Pages visited and time spent on our site</li>
-                            <li>Referring website addresses</li>
-                        </ul>
-
-                        <h2 class="text-3xl font-bold text-gray-800">How We Use Your Information</h2>
-                        <p>We use the information we collect to:</p>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Process donations and send receipts</li>
-                            <li>Provide assistance to military families</li>
-                            <li>Communicate with donors and supporters</li>
-                            <li>Improve our website and services</li>
-                            <li>Send newsletters and updates (with your consent)</li>
-                            <li>Comply with legal obligations</li>
-                        </ul>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Information Sharing</h2>
-                        <p>We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:</p>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>With service providers who help us operate our organization</li>
-                            <li>When required by law or to protect our rights</li>
-                            <li>In connection with a merger or acquisition (with prior notice)</li>
-                            <li>With your explicit consent</li>
-                        </ul>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Data Security</h2>
-                        <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.</p>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Your Rights</h2>
-                        <p>You have the right to:</p>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Access your personal information</li>
-                            <li>Correct inaccurate information</li>
-                            <li>Request deletion of your information</li>
-                            <li>Opt out of communications</li>
-                            <li>File a complaint with supervisory authorities</li>
-                        </ul>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Cookies</h2>
-                        <p>We use cookies to enhance your browsing experience and analyze website traffic. You can control cookie preferences through your browser settings.</p>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Changes to This Policy</h2>
-                        <p>We may update this Privacy Policy periodically. We will notify you of any material changes by posting the new policy on our website.</p>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Contact Us</h2>
-                        <p>If you have questions about this Privacy Policy, please contact us at:</p>
-                        <p>
-                            Heroes Support Fund<br>
-                            123 Veterans Way<br>
-                            Washington, DC 20001<br>
-                            Email: privacy@heroessupportfund.org<br>
-                            Phone: 1-800-555-HERO (4376)
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Terms of Service Page -->
-        <div id="terms-page" class="page-content">
-            <section class="py-20 bg-white">
-                <div class="max-w-4xl mx-auto px-4">
-                    <h1 class="text-5xl font-bold mb-12 text-gray-800">Terms of Service</h1>
-                    
-                    <div class="prose max-w-none text-gray-700 space-y-6">
-                        <p><em>Last updated: January 1, 2024</em></p>
-                        
-                        <h2 class="text-3xl font-bold text-gray-800">Acceptance of Terms</h2>
-                        <p>By accessing and using the Heroes Support Fund website, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.</p>
-                        
-                        <h2 class="text-3xl font-bold text-gray-800">About Heroes Support Fund</h2>
-                        <p>Heroes Support Fund is a 501(c)(3) nonprofit organization dedicated to supporting United States military personnel and their families. We are not affiliated with the Department of Defense or any government agency.</p>
-                        
-                        <h2 class="text-3xl font-bold text-gray-800">Use of Website</h2>
-                        <p>You may use our website for lawful purposes only. You agree not to use the website:</p>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>In any way that violates applicable laws or regulations</li>
-                            <li>To transmit any harmful or malicious code</li>
-                            <li>To impersonate any person or entity</li>
-                            <li>To interfere with the proper functioning of the website</li>
-                            <li>To collect information about other users without consent</li>
-                        </ul>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Donations</h2>
-                        <h3 class="text-xl font-semibold">Tax Deductibility</h3>
-                        <p>Donations to Heroes Support Fund are tax-deductible to the full extent allowed by law. Our EIN is 12-3456789. You will receive a receipt for your donation for tax purposes.</p>
-                        
-                        <h3 class="text-xl font-semibold">Donation Processing</h3>
-                        <p>All donations are processed through secure third-party payment processors. We do not store credit card information on our servers.</p>
-                        
-                        <h3 class="text-xl font-semibold">Refund Policy</h3>
-                        <p>Donations are generally non-refundable. However, we will consider refund requests made within 30 days of donation in cases of:</p>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Duplicate charges due to technical errors</li>
-                            <li>Unauthorized transactions</li>
-                            <li>Other exceptional circumstances</li>
-                        </ul>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Intellectual Property</h2>
-                        <p>The content on this website, including text, graphics, logos, and images, is the property of Heroes Support Fund and is protected by copyright and trademark laws. You may not reproduce, distribute, or create derivative works without our written permission.</p>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Disclaimer</h2>
-                        <p>The information on this website is provided on an "as is" basis. We make no warranties, expressed or implied, and hereby disclaim all other warranties including implied warranties of merchantability or fitness for a particular purpose.</p>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Limitation of Liability</h2>
-                        <p>Heroes Support Fund shall not be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with your use of our website or services.</p>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Privacy</h2>
-                        <p>Your privacy is important to us. Please review our Privacy Policy to understand how we collect, use, and protect your information.</p>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Modifications</h2>
-                        <p>We reserve the right to modify these terms at any time. Changes will be posted on this page with an updated effective date. Your continued use of the website after such changes constitutes acceptance of the new terms.</p>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Governing Law</h2>
-                        <p>These terms shall be governed by and construed in accordance with the laws of the District of Columbia, without regard to its conflict of law provisions.</p>
-
-                        <h2 class="text-3xl font-bold text-gray-800">Contact Information</h2>
-                        <p>If you have any questions about these Terms of Service, please contact us at:</p>
-                        <p>
-                            Heroes Support Fund<br>
-                            123 Veterans Way<br>
-                            Washington, DC 20001<br>
-                            Email: legal@heroessupportfund.org<br>
-                            Phone: 1-800-555-HERO (4376)
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- 501c3 Documentation Page -->
-        <div id="nonprofit-page" class="page-content">
-            <section class="py-20 bg-white">
-                <div class="max-w-4xl mx-auto px-4">
-                    <h1 class="text-5xl font-bold mb-12 text-gray-800">501(c)(3) Documentation</h1>
-                    
-                    <div class="space-y-8">
-                        <div class="bg-green-50 p-8 rounded-lg">
-                            <h2 class="text-2xl font-bold text-green-800 mb-4">Tax-Exempt Status</h2>
-                            <p class="text-green-700">Heroes Support Fund is a qualified 501(c)(3) nonprofit organization under the Internal Revenue Code. Donations are tax-deductible to the full extent allowed by law.</p>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h3 class="text-xl font-bold mb-4">Organization Details</h3>
-                                <ul class="space-y-2 text-gray-700">
-                                    <li><strong>Legal Name:</strong> Heroes Support Fund, Inc.</li>
-                                    <li><strong>EIN:</strong> 12-3456789</li>
-                                    <li><strong>State of Incorporation:</strong> Delaware</li>
-                                    <li><strong>Date Founded:</strong> March 15, 2020</li>
-                                    <li><strong>501(c)(3) Determination Date:</strong> June 1, 2020</li>
-                                </ul>
-                            </div>
-                            
-                            <div>
-                                <h3 class="text-xl font-bold mb-4">Mission Statement</h3>
-                                <p class="text-gray-700">To provide financial assistance, medical support, and mental health resources to United States military personnel and their families, with a focus on those serving in conflict zones and experiencing hardship.</p>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 class="text-2xl font-bold mb-6 text-gray-800">Available Documents</h3>
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <a href="#" class="block bg-white border-2 border-gray-200 p-6 rounded-lg hover:border-blue-500 transition">
-                                    <div class="flex items-center mb-4">
-                                        <i class="fas fa-file-pdf text-red-500 text-2xl mr-3"></i>
-                                        <h4 class="font-bold text-lg">Conflict of Interest Policy</h4>
-                                    </div>
-                                    <p class="text-gray-600 text-sm">Our policy for managing potential conflicts of interest</p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="bg-blue-50 p-8 rounded-lg">
-                            <h3 class="text-xl font-bold text-blue-800 mb-4">Verification</h3>
-                            <p class="text-blue-700 mb-4">You can verify our nonprofit status through the following official databases:</p>
-                            <ul class="space-y-2 text-blue-700">
-                                <li>• <a href="#" class="underline hover:text-blue-600">IRS Tax Exempt Organization Search</a></li>
-                                <li>• <a href="#" class="underline hover:text-blue-600">GuideStar/Candid Database</a></li>
-                                <li>• <a href="#" class="underline hover:text-blue-600">Charity Navigator</a></li>
-                                <li>• <a href="#" class="underline hover:text-blue-600">Better Business Bureau Wise Giving Alliance</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="text-center">
-                            <p class="text-gray-600 mb-6">For questions about our nonprofit status or to request additional documentation, please contact our administrative office.</p>
-                            <button onclick="showPage('contact')" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">Contact Us</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+      </section>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-flag-usa text-blue-400 text-2xl mr-3"></i>
-                        <span class="font-bold text-xl">Heroes Support Fund</span>
-                    </div>
-                    <p class="text-gray-300 mb-4">Supporting US military personnel and their families with dignity, respect, and immediate assistance when they need it most.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="font-bold text-lg mb-4">Quick Links</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#" onclick="showPage('about')" class="hover:text-white">About Us</a></li>
-                        <li><a href="#" onclick="showPage('impact')" class="hover:text-white">Our Impact</a></li>
-                        <li><a href="#" onclick="showPage('stories')" class="hover:text-white">Success Stories</a></li>
-                        <li><a href="#" onclick="showPage('transparency')" class="hover:text-white">Financial Transparency</a></li>
-                        <li><a href="#" onclick="showPage('contact')" class="hover:text-white">Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="font-bold text-lg mb-4">Legal</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#" onclick="showPage('privacy')" class="hover:text-white">Privacy Policy</a></li>
-                        <li><a href="#" onclick="showPage('terms')" class="hover:text-white">Terms of Service</a></li>
-                        <li><a href="#" onclick="showPage('nonprofit')" class="hover:text-white">501(c)(3) Documentation</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="font-bold text-lg mb-4">Contact</h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><i class="fas fa-envelope mr-2"></i>support@heroessupportfund.org</li>
-                        <li><i class="fas fa-phone mr-2"></i>1-800-555-HERO (4376)</li>
-                        <li><i class="fas fa-map-marker-alt mr-2"></i>123 Veterans Way<br>Washington, DC 20001</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-700 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 mb-4 md:mb-0">&copy; 2024 Heroes Support Fund. All rights reserved.</p>
-                    <p class="text-gray-400 text-sm text-center md:text-right">
-                        <em>Heroes Support Fund is a private organization. It is not a part of the Department of Defense or any of its components and has no governmental status.</em>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <footer id="footer" class="bg-gray-800 text-white py-12"></footer>
 
-    <script>
-        let currentPage = 'home';
-        let currentDonationAmount = 100;
-        let mobileMenuOpen = false;
-
-        function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page-content');
-            pages.forEach(page => page.classList.remove('active'));
-            
-            // Show selected page
-            const targetPage = document.getElementById(pageId + '-page');
-            if (targetPage) {
-                targetPage.classList.add('active');
-                currentPage = pageId;
-                
-                // Update URL hash
-                window.history.pushState({page: pageId}, '', '#' + pageId);
-            }
-            
-            // Close mobile menu if open
-            if (mobileMenuOpen) {
-                toggleMobileMenu();
-            }
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            mobileMenuOpen = !mobileMenuOpen;
-            menu.classList.toggle('hidden', !mobileMenuOpen);
-        }
-
-        function selectAmount(amount) {
-            currentDonationAmount = amount;
-            
-            // Update button text
-            const btn = document.getElementById('donateBtn');
-            if (btn) btn.textContent = `Donate ${amount} Now`;
-            
-            // Update visual selection
-            const options = document.querySelectorAll('.donation-option');
-            options.forEach(option => {
-                option.classList.remove('active', 'border-blue-500');
-                option.classList.add('border-gray-200');
-            });
-            
-            const selectedOption = document.querySelector(`[onclick="selectAmount(${amount})"]`);
-            if (selectedOption) {
-                selectedOption.classList.add('active', 'border-blue-500');
-                selectedOption.classList.remove('border-gray-200');
-            }
-            
-            // Clear custom amount
-            const customInput = document.getElementById('customAmount');
-            if (customInput) customInput.value = '';
-        }
-
-        function selectCustomAmount() {
-            const customInput = document.getElementById('customAmount');
-            const amount = parseInt(customInput.value);
-            
-            if (amount && amount > 0) {
-                selectAmount(amount);
-            }
-        }
-
-        function processDonation() {
-            // In a real implementation, this would redirect to a secure payment processor
-            alert(`Thank you for your generous donation of ${currentDonationAmount}! You will be redirected to our secure payment processor.`);
-            
-            // Simulate redirect to payment processor
-            // window.location.href = 'https://secure-payment-processor.com/donate?amount=' + currentDonationAmount;
-        }
-
-        // Handle browser back/forward buttons
-        window.addEventListener('popstate', function(event) {
-            if (event.state && event.state.page) {
-                showPage(event.state.page);
-            }
-        });
-
-        // Handle page load with hash
-        window.addEventListener('load', function() {
-            const hash = window.location.hash.substring(1);
-            if (hash && document.getElementById(hash + '-page')) {
-                showPage(hash);
-            }
-        });
-
-        // Handle contact form submission
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Get form data
-                    const formData = new FormData(contactForm);
-                    const data = {};
-                    for (let [key, value] of formData.entries()) {
-                        data[key] = value;
-                    }
-                    
-                    // Simulate form submission
-                    alert('Thank you for your message! We will get back to you within 24 hours.');
-                    contactForm.reset();
-                });
-            }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add loading states and animations
-        window.addEventListener('load', function() {
-            document.body.classList.add('loaded');
-        });
-
-        // Donation amount keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (currentPage === 'donate') {
-                const amounts = [25, 50, 100, 250];
-                const currentIndex = amounts.indexOf(currentDonationAmount);
-                
-                if (e.key === 'ArrowLeft' && currentIndex > 0) {
-                    selectAmount(amounts[currentIndex - 1]);
-                } else if (e.key === 'ArrowRight' && currentIndex < amounts.length - 1) {
-                    selectAmount(amounts[currentIndex + 1]);
-                }
-            }
-        });
-    </script>
-</body>
+    <script src="./script/script.js"></script>
+  </body>
 </html>

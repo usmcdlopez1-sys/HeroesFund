@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support Our Heroes | Heroes Support Fund</title>
+    <link href="../src/output.css" rel="stylesheet" />
+    <link href="../src/style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navigation -->
+    <header id="header"></header>
+
+    <!-- Donate Page -->
+    <section class="py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-4">
+        <h1 class="text-5xl font-bold text-center mb-12 text-gray-800">
+          Support Our Heroes
+        </h1>
+
+        <!-- Current Campaign -->
+        <div class="bg-blue-50 p-8 rounded-lg mb-12">
+          <h2 class="text-2xl font-bold mb-4 text-blue-800">
+            Holiday Emergency Fund
+          </h2>
+          <div class="mb-6">
+            <div class="flex justify-between mb-2">
+              <span class="font-semibold">$75,000 raised</span>
+              <span class="text-gray-600">Goal: $100,000</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-4">
+              <div class="progress-bar h-4 rounded-full"></div>
+            </div>
+          </div>
+          <p class="text-gray-700">
+            Help us ensure no military family goes without during the holiday
+            season. Your donation provides emergency assistance for food,
+            utilities, and gifts for children.
+          </p>
+        </div>
+
+        <!-- Donation Amounts -->
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-8 text-gray-800">
+            Choose Your Impact
+          </h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div
+              class="donation-option bg-white border-2 border-gray-200 p-6 rounded-lg hover:border-blue-500 cursor-pointer transition"
+              onclick="selectAmount(25)"
+            >
+              <div class="text-2xl font-bold text-blue-600 mb-2">$25</div>
+              <div class="text-sm text-gray-600">
+                Emergency groceries for a family
+              </div>
+            </div>
+            <div
+              class="donation-option bg-white border-2 border-gray-200 p-6 rounded-lg hover:border-blue-500 cursor-pointer transition"
+              onclick="selectAmount(50)"
+            >
+              <div class="text-2xl font-bold text-blue-600 mb-2">$50</div>
+              <div class="text-sm text-gray-600">Utility bill assistance</div>
+            </div>
+            <div
+              class="donation-option bg-white border-2 border-blue-500 p-6 rounded-lg cursor-pointer transition active"
+              onclick="selectAmount(100)"
+            >
+              <div class="text-2xl font-bold text-blue-600 mb-2">$100</div>
+              <div class="text-sm text-gray-600">Week of family meals</div>
+            </div>
+            <div
+              class="donation-option bg-white border-2 border-gray-200 p-6 rounded-lg hover:border-blue-500 cursor-pointer transition"
+              onclick="selectAmount(250)"
+            >
+              <div class="text-2xl font-bold text-blue-600 mb-2">$250</div>
+              <div class="text-sm text-gray-600">Medical equipment support</div>
+            </div>
+          </div>
+
+          <!-- Custom Amount -->
+          <div class="mb-8">
+            <input
+              type="number"
+              id="customAmount"
+              placeholder="Enter custom amount"
+              class="border-2 border-gray-300 px-4 py-3 rounded-lg text-center text-xl w-64 mr-4"
+            />
+            <button
+              onclick="selectCustomAmount()"
+              class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition"
+            >
+              Set Amount
+            </button>
+          </div>
+
+          <!-- Donation Button -->
+          <div class="mb-8">
+            <button
+              id="donateBtn"
+              onclick="processDonation()"
+              class="bg-red-600 hover:bg-red-700 text-white px-12 py-4 rounded-lg text-xl font-semibold transition transform hover:scale-105"
+            >
+              Donate $100 Now
+            </button>
+          </div>
+
+          <!-- Payment Options -->
+          <div class="text-center text-gray-600">
+            <p class="mb-4">Secure payment powered by Stripe</p>
+            <div class="flex justify-center space-x-4">
+              <i class="fab fa-cc-visa text-2xl"></i>
+              <i class="fab fa-cc-mastercard text-2xl"></i>
+              <i class="fab fa-cc-amex text-2xl"></i>
+              <i class="fab fa-cc-discover text-2xl"></i>
+              <i class="fab fa-paypal text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recurring Donation -->
+        <div class="bg-gray-50 p-8 rounded-lg mb-12">
+          <h3 class="text-2xl font-bold mb-4 text-gray-800">Make it Monthly</h3>
+          <p class="text-gray-700 mb-6">
+            Join our Heroes Circle with a monthly donation and provide sustained
+            support to military families year-round.
+          </p>
+          <div class="flex items-center space-x-4">
+            <input type="checkbox" id="monthly" class="w-5 h-5" />
+            <label for="monthly" class="text-lg"
+              >Make this a monthly donation</label
+            >
+          </div>
+        </div>
+
+        <!-- Other Ways to Give -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-white p-6 rounded-lg border">
+            <h3 class="text-xl font-bold mb-4 text-gray-800">
+              Corporate Sponsorship
+            </h3>
+            <p class="text-gray-700 mb-4">
+              Partner with us to support military families while gaining
+              positive brand recognition.
+            </p>
+            <button
+              onclick="showPage('contact')"
+              class="text-blue-600 hover:text-blue-700 font-semibold"
+            >
+              Learn More →
+            </button>
+          </div>
+          <div class="bg-white p-6 rounded-lg border">
+            <h3 class="text-xl font-bold mb-4 text-gray-800">Legacy Giving</h3>
+            <p class="text-gray-700 mb-4">
+              Include Heroes Support Fund in your will or estate planning to
+              create lasting impact.
+            </p>
+            <button
+              onclick="showPage('contact')"
+              class="text-blue-600 hover:text-blue-700 font-semibold"
+            >
+              Get Info →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-gray-800 text-white py-12"></footer>
+
+    <script src="../script/script.js"></script>
+  </body>
+</html>
