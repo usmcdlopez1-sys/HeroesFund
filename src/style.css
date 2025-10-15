@@ -1,11 +1,11 @@
 .hero-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=600&fit=crop");
+    url("../images/mariens.jpg");
   background-size: cover;
   background-position: center;
 }
 .testimonial-img {
-  background-image: url("https://images.unsplash.com/photo-1560525821-b5850b4b7f4c?w=400&h=300&fit=crop&face");
+  background-image: url("../images/flag1.jpg");
   background-size: cover;
   background-position: center;
 }
