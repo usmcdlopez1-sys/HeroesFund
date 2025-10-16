@@ -135,27 +135,27 @@ document.addEventListener("DOMContentLoaded", function () {
               >Home</a
             >
             <a
-              href="/page/about.html"
+              href="./about.html"
               class="text-gray-700 hover:text-blue-600 transition"
               >About</a
             >
             <a
-              href="/page/impact.html"
+              href="./impact.html"
               class="text-gray-700 hover:text-blue-600 transition"
               >Our Impact</a
             >
             <a
-              href="/page/stories.html"
+              href="./stories.html"
               class="text-gray-700 hover:text-blue-600 transition"
               >Stories</a
             >
             <a
-              href="/page/transparency.html"
+              href="./transparency.html"
               class="text-gray-700 hover:text-blue-600 transition"
               >Transparency</a
             >
             <a
-              href="/page/donate.html"
+              href="./donate.html"
               class="text-gray-700 hover:text-blue-600 transition"
               >
                 <button
@@ -183,27 +183,27 @@ document.addEventListener("DOMContentLoaded", function () {
             >Home</a
           >
           <a
-            href="/page/about.html"
+            href="./about.html"
             class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
             >About</a
           >
           <a
-            href="/page/impact.html"
+            href="./impact.html"
             class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
             >Our Impact</a
           >
           <a
-            href="/page/stories.html"
+            href="./stories.html"
             class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
             >Stories</a
           >
           <a
-            href="/page/transparency.html"
+            href="./transparency.html"
             class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
             >Transparency</a
           >
           <button
-            onclick="window.location.href='/page/donate.html'"
+            onclick="window.location.href='./donate.html'"
             class="w-full text-left px-4 py-2 bg-blue-600 text-white hover:bg-blue-700"
           >
             Donate Now
